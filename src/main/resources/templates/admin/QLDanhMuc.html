@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/adminLayout :: dynamic(~{::main})}">
+
+
+
+<main>
+	<body onload="time()" id="page-top" ng-controller="category-ctrl">
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">QUẢN LÝ DANH MỤC</h1>
+
+			<hr>
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4" >
+				<div class="card-header">
+					<h6 class="m-0 font-weight-bold text-primary">Danh sách danh mục</h6>
+				</div>
+				<div class="card-header ">
+
+					<div class="row ">
+						<div class="col-md-2">
+
+							<a class="btn btn-outline-success btn-sm" href="/themDM"
+								title="Thêm"><i class="fas fa-plus"></i> Thêm danh mục mới</a>
+						</div>
+						<!-- <div class="col-md-2">
+                                  <a class="btn btn-outline-danger btn-sm" type="button"  data-toggle="modal" data-target="#exampleModal"><i
+                                      class="fas fa-trash-alt"></i> Xóa sản phẩm</a>
+                                </div> -->
+					</div>
+
+				</div>
+
+				<div class="card-body">
+					<div class="table-responsive ">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+									
+									<th>ID Cate</th>
+									<th>Name</th>
+									<th>Create Date</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr ng-repeat="item in list">
+									
+									<td>{{item.categoryId}}</td>
+									<td>{{item.type}}</td>
+									<td>{{item.createDate}}</td>
+									<td>
+										<button class=" mb-2 btn btn-outline-danger btn-sm trash"
+											type="button" title="Xóa" ng-click="delete(item.categoryId)">
+											<i class="fas fa-trash-alt"></i>
+										</button>
+										<button class="btn btn-outline-warning btn-sm edit"
+											type="button" title="Sửa" id="show-emp" data-toggle="modal" ng-click="edit(item.categoryId)"
+											data-target="#ModalUP">
+											<i class="fas fa-edit"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
+
+		<!-- Xóa tất cả MODAL -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Thông Báo</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">Bạn có chắc muốn xóa sản phẩm này</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Thoát</button>
+						<button type="button" class="btn btn-primary">Lưu chỉnh
+							sửa</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- edit modal -->
+		<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog"
+			aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<div class="row">
+							<div class="form-group  col-md-12">
+								<span class="thong-tin-thanh-toan">
+									<h5>
+										<b class="text-dark">Chỉnh sửa thông tin danh mục cơ bản</b>
+									</h5>
+									<hr>
+								</span>
+							</div>
+						</div>
+						<form class="row">
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">ID Category : </label> <input
+									class="form-control" ng-model="form.categoryId" type="number" placeholder="" readonly>
+							</div>
+							<div class="form-group col-md-6">
+							<div class="validNameProd">
+								<label class="control-label text-dark">Type :</label> 
+								<input class="form-control" ng-model="form.type" type="text">
+									<span class="errMess">Tên không được để trống!</span>
+							</div>
+							</div>
+							<BR>
+
+							<button class="btn btn-outline-primary m-1" type="submit" ng-click="update()">Lưu
+								lại</button>
+							<a class="btn btn-outline-secondary m-1" data-dismiss="modal"
+								href="#">Hủy bỏ</a> <BR>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</body>
+</main>
+</html>

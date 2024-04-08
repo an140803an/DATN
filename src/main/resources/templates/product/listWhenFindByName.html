@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+
+
+
+<body>
+	<main>
+		<div class="container mt-5">
+
+				<div class="row m-3">
+				<div>
+					<strong><p style="font-size: 24px; " th:text="'Tìm thấy kết quả với từ khóa \'' + ${keyWord} + '\''"></p></strong>
+					<input type="hidden" id="Keyword" name=""
+								th:if="${keyWord != null}" th:value="${keyWord}" />
+				</div></div>
+	
+			<div class="row mt-2">
+				
+			
+
+					<div class="container">
+						<div class="row mb-3" style="min-height: 900px">
+							<input type="hidden" id="soTrangSearch" 
+								th:if="${pageNumbers != null}" th:value="${pageNumbers.size()}" />
+							<input type="hidden" id="TrangHTSearch" 
+								th:if="${Page != null}" th:value="${Page}" /> 
+
+							<div class=" col-lg-3 col-md-4 col-sm-4 col-12 mb-4  "
+								th:each="p : ${items}">
+								<div class="card mx-auto " style="border: 0;">
+									<div class="CR">
+										<a href="" th:href="@{|/product/detail/${p.productId}|}">
+											<img style="width: 90%;" th:src="${p.img}"
+											class="card-img-top zoom-img  " alt="...">
+										</a>
+									</div>
+									<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'"> </span> <a href="#"
+											class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+										<div class="card-text text-center ">
+											<span> <strong class="text-danger formatted-price"
+												style="font-size: 18px;"
+												th:text="${p.price - (p.price * p.discount/100)}"></strong>
+											</span> <span class="text-decoration-line-through text-secondary "
+												th:text="${p.price}+ 'đ'"></span>
+										</div>
+
+
+										<!--	<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary " th:text="${p.price}+ 'đ'"></span>
+										</div>
+									-->
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+					</div>
+					<div class="page-container">
+						<button class="first-pageSearch" disabled>
+							<i class="fas fa-angle-double-left"></i>
+						</button>
+						<button class="prev-pageSearch" disabled>
+							<i class="fas fa-angle-left"></i>
+						</button>
+						<div id="paginationSearch"></div>
+						<button class="next-pageSearch">
+							<i class="fas fa-angle-right"></i>
+						</button>
+						<button class="last-pageSearch">
+							<i class="fas fa-angle-double-right"></i>
+						</button>
+					</div>
+				
+
+
+			</div>
+
+		</div>
+
+
+
+
+	</main>
+
+</body>
+
+</html>

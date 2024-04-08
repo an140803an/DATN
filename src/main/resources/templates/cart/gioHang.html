@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+<body>
+  <main>
+    <div class="container" ng-controller="shopping-cart-ctrl">
+      <div>
+        <h4 class="fw-light">Giỏ hàng của bạn</h4>
+      </div>
+      <hr />
+  
+      <table class="table fontsize ">
+        <thead>
+          <tr>
+            <th scope="col" class="col-7 text-nowrap">Thông tin sản phẩm</th>
+            <th scope="col" class="text-nowrap text-center">Đơn giá</th>
+            <th scope="col" class="text-nowrap text-center">Số lượng</th>
+            <th scope="col" class="text-nowrap d-none d-sm-table-cell text-center">Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in cart.items">
+            <td class="d-md-flex flex-row">
+              <img style="width: 100px; height: 100px"
+                ng-src="{{item.product.img}}"
+                alt="Product Image" />
+              <div class="d-md-flex flex-column">
+                <div>{{item.product.name}}<br />Size: {{item.size}}</div>
+                <div>
+                  <button ng-click="cart.remove(item.productDetailId)" type="button" class="btn btn-outline-danger w-3">
+                    Xóa
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td class="centered-content text-danger text-center">{{item.product.price -
+              (item.product.price*(item.product.discount/100)) | formatCurrency}}</td>
+            <td class="centered-content ">
+              <div class="d-flex flex-nowrap justify-content-center">
+                <button class="btn btn-outline-warning rounded-0 btn-sm" type="button"
+                  ng-click="cart.updateQuantity(item, -1)">-</button>
+                <input type="text" class="cart-input my-0 px-0 text-center" ng-model="item.quantity"
+                  ng-blur="cart.validateInput(item)" onkeypress='validate(event)' id="quantityInput" maxlength="3"
+                  style="width: 50px" pattern="[0-9]*">
+                <button class="btn btn-outline-warning rounded-0 btn-sm " type="button"
+                  ng-click="cart.updateQuantity(item, 1)">+</button>
+              </div>
+              <div ng-show="cart.itemEdited.quantityAfterChange">
+                <span >{{cart.itemEdited.quantityAfterChange}}</span>
+              </div>
+            </td>
+            <td class="centered-content text-danger text-center d-none d-sm-table-cell">
+              {{(item.product.price - (item.product.price*(item.product.discount/100)))*item.quantity | formatCurrency}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="fontsize" style="height: 100px">
+        <div class="float-sm-end float-none row">
+          <div class="col-12">
+            <label class="float-start fw-bold">Tổng cộng:</label>
+            <label class="float-end fw-bold text-danger">{{cart.getTotalAmount() | formatCurrency}}</label>
+          </div>
+          <div class="d-grid col-12">
+            <button class="btn btn-secondary btn-lg" ng-click="cart.checkout()">
+              Thanh toán
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+</body>
+
+</html>

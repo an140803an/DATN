@@ -1,0 +1,32 @@
+    /* Mặc định là font-size: 17px */
+    .fontsize {
+        font-size: 17px;
+      }
+  
+      /* Sử dụng Media Query để chỉ áp dụng font-size trên màn hình điện thoại */
+      @media screen and (min-width: 320px) {
+        .fontsize {
+          font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+        }
+      }
+  
+      /* Sử dụng Media Query để chỉ áp dụng font-size trên màn hình điện thoại */
+      @media screen and (min-width: 1000px) {
+        .fontsize {
+          font-size: 17px;
+        }
+      }
+  
+      /* Mặc định là vertical-align: middle */
+      .centered-content {
+        vertical-align: middle;
+      }
+  
+      /* Sử dụng Media Query để chỉ áp dụng vertical-align: middle trên màn hình điện thoại */
+      @media screen and (min-width: 768px) {
+        .centered-content {
+          vertical-align: top;
+        }
+      }
+
+      

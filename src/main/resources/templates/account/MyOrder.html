@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+<body>
+
+	<main>
+		<div class="container-fluid mb-5">
+			<div class="container mt-5">
+				<div class="row ">
+					<div class="col-3 " style="background-color: #f0f0f0;">
+						<h4 class="mt-3 text-center text-dark">
+							<b>THÔNG TIN NGƯỜI DÙNG</b>
+						</h4>
+						<div class="imfor">
+							<a href="/account/Profile" class="imforA"><i
+								class="bi bi-person-lines-fill"></i> HỒ SƠ</a><br>
+							<hr style="color: rgb(13, 14, 14);">
+							<a href="/DoiMK" class="imforA"><i class="bi bi-pen"></i> ĐỔI
+								MẬT KHẨU</a><br>
+							<hr style="color: rgb(13, 14, 14);">
+							<a href="/account/MyOrder" class="imforA"><i
+								class="bi bi-clipboard-data-fill"></i> ĐƠN HÀNG ĐÃ MUA</a><br>
+							<hr style="color: rgb(13, 14, 14);">
+							<a href="/logout" class="imforA"><i
+								class="bi bi-box-arrow-right"></i> ĐĂNG XUẤT</a>
+							<hr style="color: rgb(13, 14, 14);">
+							<a th:if="${role == 'Ad' or role == 'Staf'}" href="/ChaoMung"
+								class="imforA"> TRANG QUẢN TRỊ </a>
+						</div>
+					</div>
+					<div class="col-9 mb-5">
+						<h4 class="m-2  colorText">HÓA ĐƠN CỦA BẠN</h4>
+						<hr>
+						<div class="Card mb-3">
+							<div class="card-title "
+								style="margin-top: 13px; margin-left: 14px;">
+								<h5 class="colorText">
+									<b>Lịch Sử Mua Hàng</b>
+								</h5>
+
+							</div>
+
+
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link active" id="tab1-tab"
+										data-bs-toggle="tab" data-bs-target="#tab1" type="button"
+										role="tab" aria-controls="tab1" aria-selected="true">Tất
+										cả đơn</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab3-tab" data-bs-toggle="tab"
+										data-bs-target="#tab3" type="button" role="tab"
+										aria-controls="tab3" aria-selected="false">Đơn chờ xử
+										lý</button>
+								</li>
+
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab2-tab" data-bs-toggle="tab"
+										data-bs-target="#tab2" type="button" role="tab"
+										aria-controls="tab2" aria-selected="false">Đơn Đặt
+										thành công</button>
+								</li>
+
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab4-tab" data-bs-toggle="tab"
+										data-bs-target="#tab4" type="button" role="tab"
+										aria-controls="tab4" aria-selected="false">Đơn đã hủy</button>
+								</li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+
+
+								<div class="tab-pane fade show active" id="tab1" role="tabpanel"
+									aria-labelledby="tab1-tab">
+									<h4 class="m-3">Tất Cả Hóa Đơn</h4>
+									<hr>
+									<div class="table-responsive">
+										<table class="table table-bordered" cellspacing="0">
+											<thead class="text-center colorText">
+												<tr>
+													<th>Mã Hóa Đơn</th>
+													<th>TT Thanh Toán</th>
+													<th>TT Giao Hàng</th>
+													<th>Tổng Tiền</th>
+													<th>Ngày Tạo</th>
+													<th>Trạng Thái Đơn</th>
+													<th>Phương Thức Thanh Toán</th>
+													<th>Tác Vụ</th>
+												</tr>
+
+											</thead>
+											<tbody class="colorText" th:each="od : ${ordersAddTotal}">
+												<tr class="text-center">
+													<td th:text="${od[0]}"></td>
+													<td th:text="${od[1]}"></td>
+													<td th:text="${od[2]}"></td>
+													<td class="formatted-price" th:text="${od[3]}"></td>
+													<td th:text="${od[4]}"></td>
+													<td class="" th:text="${od[5]}"></td>
+													<td class="" th:text="${od[6]}"></td>
+
+													<td class="text-center"><a
+														th:href="@{|/account/MyOrderDetail/${od[0]}|}"
+														class="btn btn-outline-warning btn-sm edit" title="Xem"
+														data-toggle="modal" data-target="#ModalUP"> <i
+															class="bi bi-eye-fill"></i>
+													</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab2" role="tabpanel"
+									aria-labelledby="tab2-tab">
+									<h4 class="m-3">Đơn Đặt Thành Công</h4>
+									<hr>
+									<div class="table-responsive">
+										<table class="table table-bordered" cellspacing="0">
+											<thead class="text-center colorText">
+												<tr>
+													<th>Mã Hóa Đơn</th>
+													<th>TT Thanh Toán</th>
+													<th>TT Giao Hàng</th>
+													<th>Tổng Tiền</th>
+													<th>Ngày Tạo</th>
+													<th>Trạng Thái Đơn</th>
+													<th>Phương Thức Thanh Toán</th>
+													<th>Tác Vụ</th>
+												</tr>
+
+											</thead>
+											<tbody class="colorText" th:each="od : ${success}">
+												<tr class="text-center">
+													<td th:text="${od[0]}"></td>
+													<td th:text="${od[1]}"></td>
+													<td th:text="${od[2]}"></td>
+													<td class="formatted-price" th:text="${od[3]}"></td>
+													<td th:text="${od[4]}"></td>
+													<td th:text="${od[5]}"></td>
+													<td class="" th:text="${od[6]}"></td>
+													<td class="text-center"><a
+														th:href="@{|/account/MyOrderDetail/${od[0]}|}"
+														class="btn btn-outline-warning btn-sm edit" title="Xem"
+														data-toggle="modal" data-target="#ModalUP"> <i
+															class="bi bi-eye-fill"></i>
+													</a></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab3" role="tabpanel"
+									aria-labelledby="tab3-tab">
+									<h4 class="m-3">Đơn Chờ Xử Lý</h4>
+									<hr>
+									<div class="table-responsive">
+										<table class="table table-bordered" cellspacing="0">
+											<thead class="text-center colorText">
+												<tr>
+													<th>Mã Hóa Đơn</th>
+													<th>TT Thanh Toán</th>
+													<th>TT Giao Hàng</th>
+													<th>Tổng Tiền</th>
+													<th>Ngày Tạo</th>
+													<th>Trạng Thái Đơn</th>
+													<th>Phương Thức Thanh Toán</th>
+													<th>Tác Vụ</th>
+												</tr>
+
+											</thead>
+											<tbody class="colorText" th:each="od: ${waiting}">
+												<tr class="text-center">
+													<td th:text="${od[0]}"></td>
+													<td th:text="${od[1]}"></td>
+													<td th:text="${od[2]}"></td>
+													<td class="formatted-price" th:text="${od[3]}"></td>
+													<td th:text="${od[4]}"></td>
+													<td th:text="${od[5]}"></td>
+													<td class="" th:text="${od[6]}"></td>
+													<td class="text-center">
+
+														<button class="btn btn-outline-danger btn-sm  "
+															type="button" title="UpDate">
+															<a
+																th:href="@{|/account/MyOrder/Cancel?orderId=${od[0]}|}">
+																<i class="bi bi-x-circle-fill"></i>
+															</a>
+
+														</button> <a th:href="@{|/account/MyOrderDetail/${od[0]}|}"
+														class="btn btn-outline-warning btn-sm edit" title="Xem"
+														data-toggle="modal" data-target="#ModalUP"> <i
+															class="bi bi-eye-fill"></i>
+													</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="tab4" role="tabpanel"
+									aria-labelledby="tab4-tab">
+									<h4 class="m-3">Đơn Đã Hủy</h4>
+									<hr>
+									<div class="table-responsive">
+										<table class="table table-bordered" cellspacing="0">
+											<thead class="text-center colorText">
+												<tr>
+													<th>Mã Hóa Đơn</th>
+													<th>TT Thanh Toán</th>
+													<th>TT Giao Hàng</th>
+													<th>Tổng Tiền</th>
+													<th>Ngày Tạo</th>
+													<th>Trạng Thái Đơn</th>
+													<th>Phương Thức Thanh Toán</th>+
+													<th>Tác Vụ</th>
+												</tr>
+
+											</thead>
+											<tbody class="colorText" th:each="od : ${cancel}">
+												<tr class="text-center">
+													<td th:text="${od[0]}"></td>
+													<td th:text="${od[1]}"></td>
+													<td th:text="${od[2]}"></td>
+													<td class="formatted-price" th:text="${od[3]}"></td>
+													<td th:text="${od[4]}"></td>
+													<td th:text="${od[5]}"></td>
+													<td class="" th:text="${od[6]}"></td>
+													<td class="text-center"><a
+														th:href="@{|/account/MyOrderDetail/${od[0]}|}"
+														class="btn btn-outline-warning btn-sm edit" title="Xem"
+														data-toggle="modal" data-target="#ModalUP"> <i
+															class="bi bi-eye-fill"></i>
+													</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+
+
+</body>
+
+
+</html>

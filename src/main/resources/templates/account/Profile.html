@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+
+
+<body>
+
+	<main>
+
+		<div class="container mt-5 mb-5">
+			<div class="row " style="height: 690px;">
+				<div class="col-3 " style="background-color: #f0f0f0;">
+					<h4 class="mt-3 text-center text-dark">
+						<b>THÔNG TIN NGƯỜI DÙNG</b>
+					</h4>
+					<div class="imfor">
+						<a href="/account/Profile" class="imforA"><i
+							class="bi bi-person-lines-fill"></i> HỒ SƠ</a><br>
+						<hr style="color: rgb(13, 14, 14);">
+						<a href="/DoiMK" class="imforA"><i class="bi bi-pen"></i> ĐỔI
+							MẬT KHẨU</a><br>
+						<hr style="color: rgb(13, 14, 14);">
+						<a href="/account/MyOrder" class="imforA"><i
+							class="bi bi-clipboard-data-fill"></i> ĐƠN HÀNG ĐÃ MUA</a><br>
+						<hr style="color: rgb(13, 14, 14);">
+						<a href="/logout" class="imforA"><i
+							class="bi bi-box-arrow-right"></i> ĐĂNG XUẤT</a>
+						<hr style="color: rgb(13, 14, 14);">
+						<a th:if="${role == 'Ad' or role == 'Staf'}" href="/ChaoMung" class="imforA"> TRANG QUẢN TRỊ </a>
+					</div>
+				</div>
+				<div class="col-9 ">
+					<form id="editForm" action="/Profile/changeProfile"
+						th:object="${us}" method="post" enctype="multipart/form-data">
+						<div class="card">
+							<div class="row ">
+								<div class="col-3">
+									<div class="d-flex align-items-center">
+										<div class="card-img-circlea" onclick="chooseFile()">
+											<div class="imageHover" id="uploadButton">
+												<input type="file" id="uploadfile" name="saveIMG"
+													style="display: none"> <img
+													th:src="@{|/assets/image/${us.img}|}" id="thumbimage"
+													class="card-img-top rounded-circle" alt="...">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-8" style="margin-top: 60px;">
+									<h1 th:text="*{email}" class="mt-3 mb-0"></h1>
+									<p class="fs-6" th:text="*{name}"></p>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<div class="m-1">
+										<label for="exampleFormControlInput1" class="form-label">Họ
+											và Tên:*</label> <input type="text" class="form-control"
+											id="accountName" th:field="*{name}" value="nam">
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="m-1">
+										<label for="exampleFormControlInput1" class="form-label">Email:*</label>
+										<input type="email" class="form-control" id="accountEmail"
+											th:field="*{email}">
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+
+								<div class="col-12">
+									<div class="m-1">
+										<label for="exampleFormControlInput1" class="form-label">Địa
+											Chỉ:*</label> <input type="Text" class="form-control"
+											id="accountAddress" name="DiaChi" th:field="*{address}"
+											th:value="${us.address}">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<div class="m-1">
+										<label for="exampleFormControlInput1" class="form-label">Số
+											Điện Thoại:*</label> <input type="text"
+											class="form-control pb-2 pt-2" id="accountPhone"
+											maxlength="10" minlength="10" name="phone"
+											pattern="^0[0-9]{9}"
+											title="Số điện thoại cần đủ 10 số và bắt đầu bằng 0" required
+											th:field="*{phone}">
+									</div>
+								</div>
+								<!--	  <div class="col-6">
+                                    <div class="m-1">
+                                        <label for="exampleFormControlInput1" class="form-label">Ảnh Đại Diện:*</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput2" th:field="*{img}"
+                                            
+                                    </div>
+                                </div>  -->
+								<div class="col-6 mt-2">
+									<div class="row">
+										<div class="ms-3 boxgender">
+											<label for="exampleFormControlInput1" class="form-label">Giới
+												Tính:</label> <span class="me-2 gender mt-1"> <input
+												class="form-check-input" type="radio" name="exampleRadios"
+												id="namRadio" value="Nam" th:checked="${us.gender == 'Nam'}">
+												<label class="form-check-label cc" for="namRadio">
+													Nam </label>
+											</span> <span class="gender mt-1"> <input
+												class="form-check-input" type="radio" name="exampleRadios"
+												id="nuRadio" value="Nữ" th:checked="${us.gender == 'Nữ'}">
+												<label class="form-check-label cc" for="nuRadio"> Nữ
+											</label>
+											</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="row mb-3">
+								<div class="col-6">
+									<!--    <div class="m-1">
+                                        <label for="exampleFormControlInput1" class="form-label">Tỉnh Thành:*</label><br>
+                                        <div class="btn-group">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="true"
+                                                aria-expanded="false">
+                                                Chọn Tỉnh/Thành phố
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">TP.Hồ Chí Minh</a></li>
+                                                <li><a class="dropdown-item" href="#">Đồng Nai</a></li>
+                                                <li><a class="dropdown-item" href="#">Tiền Giang</a></li>
+                                                <li><a class="dropdown-item" href="#">Cam Ranh</a></li>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+								</div>
+
+							</div>
+						</div>
+						<div class="row mt-3">
+
+							<div class="col">
+								<button type="button" class="btn btn-outline-success me-2"
+									id="editProfileBtn">
+									<i class="bi bi-pencil-square"></i> Chỉnh sửa hồ sơ
+								</button>
+								<button type="submit" class="btn btn-outline-primary me-2"
+									id="submitButton">Chỉnh Sửa</button>
+								<button type="button" class="btn btn-outline-danger"
+									id="cancelButton">Hủy</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+
+
+
+
+			</div>
+		</div>
+		</div>
+	</main>
+
+</body>
+
+</html>

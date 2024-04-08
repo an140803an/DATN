@@ -1,0 +1,28 @@
+.carousel {
+    margin: 0;
+    padding: 0;
+}
+
+.CR {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.zoom-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s ease;
+}
+
+.card:hover .zoom-img {
+    transform: scale(1.2);
+    /* Điều chỉnh mức độ zoom tùy ý */
+}
+
+.textbottom {
+    background-color: rgba(249, 155, 32, 0.7);
+    padding: 10px;
+
+
+}

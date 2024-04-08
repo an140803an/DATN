@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/adminLayout :: dynamic(~{::main})}">
+
+
+<main>
+	<body onload="time()" id="page-top" ng-app="adminApp"
+		ng-controller="product-ctrl">
+		<!-- Page Heading -->
+		<div class="card ">
+			<h1 class="h3 m-3 text-dark">QUẢN LÝ SẢN PHẨM</h1>
+		</div>
+		<br>
+
+		<!-- DataTales Example -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card ">
+
+					<div class="tile m-3 ">
+
+						<p class="tile-title text-dark " style="font-size: 19px;">Thêm
+							sản Phẩm mới</p>
+						<hr style="border-color: rgb(213, 213, 11);">
+						<div class="tile-body">
+
+							<form class="row" enctype="multipart/form-data" method="post">
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Category Type: </label>
+									<select ng-model="form.category.categoryId"
+										class="form-select custom-select"
+										aria-label="Default select example" id="cateSelect">
+										<option ng-repeat="c in categories" ng-value="c.categoryId">{{c.type}}</option>
+									</select>
+									<!-- <div class="validCatePro">
+										<span class="errMess">Danh mục không được để trống!</span>
+									</div> -->
+
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Name :</label>
+									<div class="validNameProd">
+										<input class="form-control" type="text" ng-model="form.name">
+										<span class="errMess">Tên không được để trống!</span>
+									</div>
+								</div>
+
+
+
+
+								<div class="form-group col-md-3">
+
+									<label class="control-label text-dark">Price :</label>
+									<div class="validPrice">
+										<input class="form-control UpDown" type="number"
+											ng-model="form.price"> <span class="errMess">Giá
+											không được để trống!</span>
+
+									</div>
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Description
+										Material :</label> <input class="form-control" type="text"
+										ng-model="form.descMaterial">
+								</div>
+
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Description
+										Status :</label> <input class="form-control" type="text"
+										ng-model="form.descStatus">
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Description
+										Pattern :</label> <input class="form-control" type="text"
+										ng-model="form.descPattern">
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label text-dark">Discount :</label> <input
+										class="form-control UpDown" type="number"
+										ng-model="form.discount">
+								</div>
+
+								<div class="form-group col-md-3 ">
+									<label class="control-label text-dark">Created date :</label> <input
+										class="form-control " type="text" id="clock"
+										ng-model="form.createDate">
+								</div>
+								<div class="form-group col-md-3 ">
+									<input type="text" ng-model="form.img"/>
+
+									<!-- <button ng-click="uploadFile()">Upload File</button> -->
+								</div>
+
+							</form>
+						</div>
+						<button class="btn btn-outline-primary valid" type="submit"
+							ng-click="create()">Lưu lại</button>
+						<button class="btn btn-outline-primary valid" type="button"
+							ng-click="reset()">Reset</button>
+						<a class="btn btn-outline-secondary" href="/quan-li-san-pham">Quản
+							lí sản phẩm</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+
+		</div>
+		<!-- End of Main Content -->
+	</body>
+</main>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+
+
+
+<body>
+	<main>
+		<div class="container mt-5">
+
+
+
+			<div class="row mt-2">
+				<div class=" col-lg-2 col-md-4 col-sm-12 ">
+
+					<div class="   d-md-none d-sm-block mb-5">
+						<button class="btn btn-outline-success" type="button"
+							data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+							aria-controls="offcanvasScrolling">
+							<strong><i class="bi bi-funnel-fill"></i> Danh Mục Tìm
+								Kiếm</strong>
+						</button>
+
+						<div class="offcanvas offcanvas-start" data-bs-scroll="true"
+							data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
+							aria-labelledby="offcanvasScrollingLabel">
+							<div class="offcanvas-header " style="background-color: #b8d2f0;">
+
+								<h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+									<b><i class="bi bi-list"></i> Danh Mục Tìm Kiếm</b>
+								</h5>
+
+
+
+								<button type="button" class="btn-close"
+									data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							</div>
+							<div class="offcanvas-body">
+
+								<form class="d-flex mb-3" role="search">
+									<input class="form-control me-1" type="search"
+										placeholder="Search..." aria-label="Search">
+									<button class="btn btn-outline-success" type="submit">
+										<i class="bi bi-search"></i>
+									</button>
+								</form>
+
+								<div class="list-group text-center">
+									<a href="#"
+										class="list-group-item list-group-item-action active border-0 "
+										aria-current="true" style="background: #91bdf0;"> <b
+										style="color: #252348;"> Danh Mục Sản Phẩm </b>
+									</a> <a th:href="@{/product/list/listCategory?category=all}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Tất cả sản phẩm</a> <a
+										th:href="@{/product/list/listCategory?category=Áo thun}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Áo Thun</a> <a
+										th:href="@{/product/list/listCategory?category=Áo Polo}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Áo Polo</a> <a
+										th:href="@{/product/list/listCategory?category=Baby Tee}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Baby Tee</a> <a
+										th:href="@{/product/list/listCategory?category=Áo sơ mi}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Áo sơ mi</a> <a
+										th:href="@{/product/list/listCategory?category=Áo khoác}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Áo khoác</a> <a
+										th:href="@{/product/list/listCategory?category=Hoodie}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Hoodie</a> <a
+										th:href="@{/product/list/listCategory?category=Quần}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Quần</a> <a
+										th:href="@{/product/list/listCategory?category=Phụ kiện}"
+										class="list-group-item list-group-item-action border-0 change-color">
+										Phụ Kiện</a>
+								</div>
+
+								<div class="list-group mt-3">
+									<button type="button"
+										class="list-group-item list-group-item-action active border-0"
+										aria-current="true" style="background: #91bdf0;">
+										<b style="color: #252348;"><i class="bi bi-funnel"></i> Bộ
+											Lọc Tìm Kiếm</b>
+									</button>
+									<ul class="list-group list-group-flush ">
+
+										<!--
+						<li class="list-group-item">
+                      <div class="">
+                        <label for="customRange1" class="form-label"><b><i class="bi bi-filter-right"></i> Lọc Theo
+                            Giá</b></label>
+                        <input type="range" class="form-range" id="customRange1" min="0" max="2000000" step="1000"
+                          oninput="updateValue(this.value)">
+                        <br>
+                        <div class="row">
+                          <div class="col-6">
+                            <span id="sliderValue">0đ</span>
+                          </div>
+                          <div class="col-6">
+                            <button type="button" class="btn btn-outline-danger " style="font-size: 13px;"
+                              onclick="getValue()">Áp Dụng</button>
+                          </div>
+                        </div>
+            
+                       
+                      </div>
+            
+            
+                    </li>
+					-->
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-sort-down"></i> Cao Đến Thấp
+											</button></li>
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-sort-down-alt"></i> Thấp Đến Cao
+											</button></li>
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-filter-right"></i> Dưới 200.000đ
+											</button></li>
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-filter-right"></i> 200k đến 500k
+											</button></li>
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-filter-right"></i> Trên 500.000đ
+											</button></li>
+										<br>
+
+										<label for="customRange1" class="form-label"><b><i
+												class="bi bi-filter-right"></i> Lọc Theo Tên</b></label>
+										<li class="list-group-item"><button type="button"
+												id="SortName" class="btn btn-outline-success"
+												style="font-size: 13px;">
+												<i class="bi bi-sort-alpha-down"></i> Từ A -> Z
+											</button></li>
+										<li class="list-group-item"><button type="button"
+												class="btn btn-outline-success" style="font-size: 13px;">
+												<i class="bi bi-sort-alpha-up"></i> Từ Z -> A
+											</button></li>
+
+									</ul>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="d-none d-md-block">
+						<div class="list-group text-center">
+							<a href="#"
+								class="list-group-item list-group-item-action active border-0 "
+								aria-current="true" style="background: #91bdf0;"> <b
+								style="color: #252348;"> Danh Mục Sản Phẩm </b>
+							</a> <a th:href="@{/product/list/listCategory?category=all}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Tất cả sản phẩm</a> <a
+								th:href="@{/product/list/listCategory?category=Áo Polo 9 }"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Áo Thun</a> <a
+								th:href="@{/product/list/listCategory?category=Áo Polo}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Áo Polo</a> <a
+								th:href="@{/product/list/listCategory?category=Baby Tee}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Baby Tee</a> <a
+								th:href="@{/product/list/listCategory?category=Áo sơ mi}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Áo sơ mi</a> <a
+								th:href="@{/product/list/listCategory?category=Áo khoác}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Áo khoác</a> <a
+								th:href="@{/product/list/listCategory?category=Hoodie}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Hoodie</a> <a th:href="@{/product/list/listCategory?category=Quần}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Quần</a> <a
+								th:href="@{/product/list/listCategory?category=Phụ kiện}"
+								class="list-group-item list-group-item-action border-0 change-color">
+								Phụ Kiện</a>
+						</div>
+
+						<div class="list-group mt-3">
+							<button type="button"
+								class="list-group-item list-group-item-action active border-0"
+								aria-current="true" style="background: #91bdf0;">
+								<b style="color: #252348;"><i class="bi bi-funnel"></i> Bộ
+									Lọc Tìm Kiếm</b>
+							</button>
+							<ul class="list-group list-group-flush ">
+
+								<!--      <li class="list-group-item">
+            <div class="">
+              <label for="customRange1" class="form-label"><b><i class="bi bi-filter-right"></i> Lọc Theo
+                  Giá</b></label>
+              <input type="range" class="form-range" id="customRange1" min="0" max="2000000" step="1000"
+                oninput="updateValue(this.value)">
+              <br>
+              <div class="row">
+                <div class="col-6">
+                  <b style="font-size: 12px;" id="sliderValue">0đ</b>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn btn-outline-danger " style="font-size: 12px;"
+                    onclick="getValue()">Tìm</button>
+                </div>
+              </div>
+  
+              
+            </div>
+  
+  
+          </li>-->
+								<label for="customRange1" class="form-label mt-2"><b><i
+										class="bi bi-filter-right"></i> Lọc Theo Giá</b></label>
+								<a class="list-group-item">
+									<button type="button" id="SortPriceHigh"
+										class="btn btn-outline-success" style="font-size: 13px;">
+										<i class="bi bi-sort-down"></i> Cao Đến Thấp
+									</button>
+								</a>
+								<a class="list-group-item">
+									<button type="button" id="SortPriceLow"
+										class="btn btn-outline-success" style="font-size: 13px;">
+										<i class="bi bi-sort-down-alt"></i> Thấp Đến Cao
+									</button>
+								</a>
+								<a class="list-group-item">
+									<button type="button" id="SortPriceBetween02"
+										class="btn btn-outline-success" style="font-size: 13px;">
+										<i class="bi bi-filter-right"></i> Dưới 200.000đ
+									</button>
+								</a>
+								<a class="list-group-item">
+									<button type="button" id="SortPriceBetween25"
+										class="btn btn-outline-success" style="font-size: 13px;">
+										<i class="bi bi-filter-right"></i> 200k đến 500k
+									</button>
+								</a>
+								<a class="list-group-item">
+									<button type="button" id="SortPriceBetween5up"
+										class="btn btn-outline-success" style="font-size: 13px;">
+										<i class="bi bi-filter-right"></i> Trên 500.000đ
+									</button>
+								</a>
+
+								<label for="customRange1" class="form-label mt-2"><b><i
+										class="bi bi-filter-right"></i> Lọc Theo Tên</b></label>
+								<a class="list-group-item"><button type="button"
+										id="SortNameAZ" class="btn btn-outline-success"
+										style="font-size: 13px;">
+										<i class="bi bi-sort-alpha-down"></i> Từ A -> Z
+									</button> </a>
+								<a class="list-group-item"><button type="button"
+										id="SortNameZA" class="btn btn-outline-success"
+										style="font-size: 13px;">
+										<i class="bi bi-sort-alpha-up"></i> Từ Z -> A
+									</button> </a>
+
+
+							</ul>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class="col-lg-10 col-md-8 col-sm-12">
+
+					<div class="container">
+						<div class="row mb-3" style="min-height: 900px">
+							<input type="hidden" id="soTrang" name="soTrang"
+								th:if="${pageNumbers != null}" th:value="${pageNumbers.size()}" />
+							<input type="hidden" id="TrangHT" name="soTrang"
+								th:if="${Page != null}" th:value="${Page}" /> <input
+								type="hidden" id="categoryInfo" name="categoryInfo"
+								th:if="${category != null}" th:value="${category}" />
+
+							<div class=" col-lg-3 col-md-4 col-sm-4 col-12 mb-4  "
+								th:each="p : ${items}">
+								<div class="card mx-auto " style="border: 0;">
+									<div class="CR">
+										<a href="" th:href="@{|/product/detail/${p.productId}|}">
+											<img style="width: 90%;" th:src="${p.img}"
+											class="card-img-top zoom-img  " alt="...">
+										</a>
+									</div>
+									<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'"> </span> <a href="#"
+											class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+										<div class="card-text text-center ">
+											<span> <strong class="text-danger formatted-price"
+												style="font-size: 18px;"
+												th:text="${p.price - (p.price * p.discount/100)}"></strong>
+											</span> <span class="text-decoration-line-through text-secondary "
+												th:text="${p.price}+ 'đ'"></span>
+										</div>
+
+
+										<!--	<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary " th:text="${p.price}+ 'đ'"></span>
+										</div>
+									-->
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+					</div>
+					<div class="page-container">
+						<button class="first-page" disabled>
+							<i class="fas fa-angle-double-left"></i>
+						</button>
+						<button class="prev-page" disabled>
+							<i class="fas fa-angle-left"></i>
+						</button>
+						<div id="pagination"></div>
+						<button class="next-page">
+							<i class="fas fa-angle-right"></i>
+						</button>
+						<button class="last-page">
+							<i class="fas fa-angle-double-right"></i>
+						</button>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+
+
+	</main>
+
+</body>
+
+</html>

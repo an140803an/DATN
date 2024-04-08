@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+  <body>
+    <main>
+    <div class="container">
+      <div>
+        <h4 class="fw-light">Hóa đơn của bạn</h4>
+      </div>
+      <hr />
+      <table class="table fontsize cart-table">
+        <thead>
+          <tr>
+            <th scope="col" class="text-nowrap">Mã hóa đơn</th>
+            <th scope="col" class="text-nowrap">Tên khách hàng</th>
+            <th scope="col" class="text-nowrap">Tổng tiền</th>
+            <th scope="col" class="text-nowrap">Ngày tạo</th>
+            <th scope="col" class="text-nowrap">Chi tiết</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lê Minh Tuấn</td>
+            <td>370.000đ</td>
+            <td>22/10/2023</td>
+            <td><a href="">Xem</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</main>
+</html>

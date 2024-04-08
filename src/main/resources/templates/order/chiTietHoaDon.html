@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+  <body>
+    <main>
+    <div class="container">
+      <div>
+        <h4 class="fw-light">Chi tiết hóa đơn</h4>
+      </div>
+      <hr />
+      <div>
+        <p>Tên khách hàng: <label class="fw-bold">Lê Minh Tuấn</label></p>
+        <p>Tổng tiền: <label class="fw-bold">370.000đ</label></p>
+        <p>Ngày tạo: <label class="fw-bold">22/10/2023</label></p>
+      </div>
+      <table class="table fontsize cart-table">
+        <thead>
+          <tr>
+            <th scope="col" class="col-7 text-nowrap">Thông tin sản phẩm</th>
+            <th scope="col" class="col text-nowrap">Đơn giá</th>
+            <th scope="col" class="col text-nowrap">Số lượng</th>
+            <th scope="col" class="col text-nowrap">Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="d-md-flex flex-row align-items-center">
+              <img
+                style="width: 100px; height: 100px"
+                src="https://bizweb.dktcdn.net/100/415/697/products/nta101-arg443lf-1-vzw7-hinh-mat-truoc-0.jpg?v=1693562410037"
+                alt="Product Image"
+              />
+              <div>
+                Áo Thun Teelab Local Brand Unisex Percy Sport T-Shirt TS194
+              </div>
+            </td>
+            <td class="align-middle">185.000đ</td>
+            <td class="align-middle">1</td>
+            <td class="align-middle">185.000đ</td>
+          </tr>
+          <tr>
+            <td class="d-md-flex flex-row align-items-center">
+              <img
+                style="width: 100px; height: 100px"
+                src="https://bizweb.dktcdn.net/100/415/697/products/nta101-arg443lf-1-vzw7-hinh-mat-truoc-0.jpg?v=1693562410037"
+                alt="Product Image"
+              />
+              <div>
+                Áo Thun Teelab Local Brand Unisex Percy Sport T-Shirt TS194
+              </div>
+            </td>
+            <td class="align-middle">185.000đ</td>
+            <td class="align-middle">1</td>
+            <td class="align-middle">185.000đ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</main>
+</html>

@@ -1,0 +1,147 @@
+ .alert {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      border: 1px solid black;
+      /* Viền màu đen */
+    }
+
+    .form-check-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar {
+      background-color: #f8f9fa;
+      /* Màu nền của sidebar */
+      border: 1px solid #dee2e6;
+      /* Viền của sidebar */
+      border-radius: 5px;
+      /* Bo góc của sidebar */
+      padding: 15px;
+      /* Khoảng cách bên trong sidebar */
+    }
+
+    .sidebar_header {
+      margin-bottom: 20px;
+      /* Khoảng cách giữa header và content */
+    }
+
+    .sidebar_title {
+      font-size: 1.5rem;
+      /* Kích thước tiêu đề */
+      margin-bottom: 0;
+      /* Loại bỏ khoảng cách dưới tiêu đề */
+    }
+
+    .order-summary {
+      margin-top: 20px;
+      /* Khoảng cách giữa các section trong order-summary */
+    }
+
+    .product-table {
+      width: 100%;
+      /* Đảm bảo bảng chiếm toàn bộ chiều rộng của phần cha */
+      border-collapse: collapse;
+      /* Loại bỏ đường biên giữa các ô */
+      margin-bottom: 20px;
+      /* Khoảng cách giữa các bảng */
+    }
+
+    .product-table th,
+    .product-table td {
+      padding: 10px;
+      /* Khoảng cách giữa nội dung và đường viền ô */
+      text-align: left;
+      /* Căn lề nội dung sang trái */
+      border-bottom: 1px solid #dee2e6;
+      /* Đường viền dưới của mỗi hàng */
+    }
+
+    .total-line-table th,
+    .total-line-table td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .total-line-table tfoot {
+      font-weight: bold;
+      /* Chữ in đậm cho phần footer */
+    }
+
+    .order-summary_nav {
+      margin-top: 20px;
+      /* Khoảng cách giữa các button và các phần khác */
+    }
+
+    .btn-checkout {
+      background-color: #007bff;
+      /* Màu nền của button ĐẶT HÀNG */
+      color: #fff;
+      /* Màu chữ của button ĐẶT HÀNG */
+    }
+
+    .btn-checkout:hover {
+      background-color: #0056b3;
+      /* Màu nền khi di chuột qua */
+    }
+
+    .previous-link {
+      color: #007bff;
+      /* Màu chữ của nút Quay về giỏ hàng */
+      text-decoration: none;
+      /* Loại bỏ gạch chân mặc định */
+      margin-right: 15px;
+      /* Khoảng cách giữa nút Quay về giỏ hàng và button ĐẶT HÀNG */
+    }
+
+    .previous-link_arrow {
+      margin-right: 5px;
+      /* Khoảng cách giữa mũi tên và chữ */
+    }
+
+    .previous-link:hover {
+      text-decoration: underline;
+      /* Gạch chân khi di chuột qua */
+    }
+
+    .alert--danger {
+      background-color: #f8d7da;
+      /* Màu nền cảnh báo */
+      color: #721c24;
+      /* Màu chữ cảnh báo */
+      border: 1px solid #f5c6cb;
+      /* Viền cảnh báo */
+      border-radius: 5px;
+      /* Bo góc của cảnh báo */
+      padding: 10px;
+      /* Khoảng cách bên trong cảnh báo */
+      margin-top: 20px;
+      /* Khoảng cách giữa cảnh báo và các phần khác */
+    }
+
+    .login {
+      text-decoration: none;
+      color: black;
+    }
+
+    .login:hover {
+      text-decoration: none;
+      color: rgb(90, 86, 86);
+    }
+
+    .cart-prev {
+      text-decoration: none;
+      color: black;
+    }
+
+    .cart-prev:hover {
+      text-decoration: none;
+      color: rgb(90, 86, 86);
+    }
+
+ .iti {
+    display: block; /* Hiển thị ô nhập liệu số điện thoại là một khối block */
+    width: 100%; /* Độ rộng 100% của đối tượng cha */
+  }

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="dynamic(main)">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>TokoFashion</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="./docs.htmlxmlrpc.php" />
+<meta name="robots" content="noindex,follow" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//s.w.org" />
+<!-- <link rel="icon" href="" type="image/x-icon" /> -->
+<!-- <link rel="apple-touch-icon"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/favicon.png?1692958575148"> -->
+<link rel="stylesheet" type="text/css"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/font.scss.css?1692958575148"
+	media="print" onload="this.media='all';">
+<link rel="preload" as="style" type="text/css"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/bootstrap.css?1692958575148"
+	onload="this.rel='stylesheet'" />
+<link
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/bootstrap.css?1692958575148"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="preload" as="style" type="text/css"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/main.scss.css?1692958575148"
+	onload="this.rel='stylesheet'" />
+<link
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/main.scss.css?1692958575148"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="preload" as="style" type="text/css"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/index.scss.css?1692958575148"
+	onload="this.rel='stylesheet'" />
+<link
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/index.scss.css?1692958575148"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="preload" as="style" type="text/css"
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/swiper.scss.css?1692958575148"
+	onload="this.rel='stylesheet'" />
+<link
+	href="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/swiper.scss.css?1692958575148"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+	integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+	integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<!-- Thư viện libphonenumber-js -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.8.9/libphonenumber-js.min.js"></script>
+<!-- <link rel="stylesheet" href="css/checkout.css"> -->
+
+
+<!-- Bootstrap CSS v5.2.1 -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cart.css">
+<link rel="stylesheet" href="/assets/css/home.css">
+<link rel="stylesheet" href="/assets/css/docs.css">
+<link rel="stylesheet" href="/assets/css/profile.css">
+<!--  <link rel="stylesheet" href="/assets/css/checkout.css">-->
+<script>
+	function addToCart() {
+		// Lấy giá trị của productDetailId được chọn
+		var selectedProductDetailId = $('input[name="btnradio"]:checked').attr(
+				'id').replace('btnradio', '');
+
+		// Lấy giá trị của số lượng
+		var selectedQty = $('#qty').val();
+
+		// Hiển thị thông số đã chọn trong label
+		$('#selectedValuesLabel').text(
+				'ProductDetailId: ' + selectedProductDetailId + ', Số lượng: '
+						+ selectedQty);
+	}
+</script>
+<style type="text/css">
+    .alert {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      border: 1px solid black;
+      /* Viền màu đen */
+    }
+
+    .form-check-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar {
+      background-color: #f8f9fa;
+      /* Màu nền của sidebar */
+      border: 1px solid #dee2e6;
+      /* Viền của sidebar */
+      border-radius: 5px;
+      /* Bo góc của sidebar */
+      padding: 15px;
+      /* Khoảng cách bên trong sidebar */
+    }
+
+    .sidebar_header {
+      margin-bottom: 20px;
+      /* Khoảng cách giữa header và content */
+    }
+
+    .sidebar_title {
+      font-size: 1.5rem;
+      /* Kích thước tiêu đề */
+      margin-bottom: 0;
+      /* Loại bỏ khoảng cách dưới tiêu đề */
+    }
+
+    .order-summary {
+      margin-top: 20px;
+      /* Khoảng cách giữa các section trong order-summary */
+    }
+
+    .product-table {
+      width: 100%;
+      /* Đảm bảo bảng chiếm toàn bộ chiều rộng của phần cha */
+      border-collapse: collapse;
+      /* Loại bỏ đường biên giữa các ô */
+      margin-bottom: 20px;
+      /* Khoảng cách giữa các bảng */
+    }
+
+    .product-table th,
+    .product-table td {
+      padding: 10px;
+      /* Khoảng cách giữa nội dung và đường viền ô */
+      text-align: left;
+      /* Căn lề nội dung sang trái */
+      border-bottom: 1px solid #dee2e6;
+      /* Đường viền dưới của mỗi hàng */
+    }
+
+    .total-line-table th,
+    .total-line-table td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .total-line-table tfoot {
+      font-weight: bold;
+      /* Chữ in đậm cho phần footer */
+    }
+
+    .order-summary_nav {
+      margin-top: 20px;
+      /* Khoảng cách giữa các button và các phần khác */
+    }
+
+    .btn-checkout {
+      background-color: #007bff;
+      /* Màu nền của button ĐẶT HÀNG */
+      color: #fff;
+      /* Màu chữ của button ĐẶT HÀNG */
+    }
+
+    .btn-checkout:hover {
+      background-color: #0056b3;
+      /* Màu nền khi di chuột qua */
+    }
+
+    .previous-link {
+      color: #007bff;
+      /* Màu chữ của nút Quay về giỏ hàng */
+      text-decoration: none;
+      /* Loại bỏ gạch chân mặc định */
+      margin-right: 15px;
+      /* Khoảng cách giữa nút Quay về giỏ hàng và button ĐẶT HÀNG */
+    }
+
+    .previous-link_arrow {
+      margin-right: 5px;
+      /* Khoảng cách giữa mũi tên và chữ */
+    }
+
+    .previous-link:hover {
+      text-decoration: underline;
+      /* Gạch chân khi di chuột qua */
+    }
+
+    .alert--danger {
+      background-color: #f8d7da;
+      /* Màu nền cảnh báo */
+      color: #721c24;
+      /* Màu chữ cảnh báo */
+      border: 1px solid #f5c6cb;
+      /* Viền cảnh báo */
+      border-radius: 5px;
+      /* Bo góc của cảnh báo */
+      padding: 10px;
+      /* Khoảng cách bên trong cảnh báo */
+      margin-top: 20px;
+      /* Khoảng cách giữa cảnh báo và các phần khác */
+    }
+
+    .login {
+      text-decoration: none;
+      color: black;
+    }
+
+    .login:hover {
+      text-decoration: none;
+      color: rgb(90, 86, 86);
+    }
+
+    .cart-prev {
+      text-decoration: none;
+      color: black;
+    }
+
+    .cart-prev:hover {
+      text-decoration: none;
+      color: rgb(90, 86, 86);
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+</style>
+<style>
+.back-to-top-btn {
+	display: none;
+	position: fixed;
+	bottom: 100px;
+	right: 30px;
+	width: 50px;
+	/* Độ rộng của nút */
+	height: 50px;
+	/* Độ cao của nút */
+	background-color: #dbd6d6;
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	/* Đặt border-radius thành 50% để tạo hình tròn */
+	cursor: pointer;
+	text-align: center;
+	line-height: 50px;
+	/* Để nội dung nằm giữa nút */
+	font-size: 18px;
+	outline: none;
+}
+
+.back-to-top-btn:hover {
+	background-color: #474545;
+}
+
+.CR {
+	position: relative;
+	overflow: hidden;
+}
+
+.zoom-img {
+	width: 100%;
+	height: 100%;
+	transition: transform 1.5s ease;
+}
+
+.card:hover .zoom-img {
+	transform: scale(1.2);
+	/* Điều chỉnh mức độ zoom tùy ý */
+}
+
+/* CSS tùy chỉnh */
+.change-color {
+	/* Màu chữ ban đầu là xám */
+	color: gray;
+	/* Chuyển màu từ xám sang đen khi hover */
+}
+
+.change-color:hover {
+	color: black;
+}
+
+.wap-ss-img {
+	text-align: center;
+	width: 100%;
+}
+
+.wap-ss-img img {
+	height: 250px;
+	margin: 0 auto;
+}
+
+/* Điều chỉnh khoảng cách giữa các sản phẩm */
+.wap-items-ss {
+	margin-bottom: 20px;
+}
+
+/* Điều chỉnh kích thước hình ảnh để không bị đè lên nhau */
+.wap-items-ss img {
+	max-width: 100%;
+	height: auto;
+}
+
+.textleft {
+	text-align: center;
+}
+
+.slick-prev:before, .slick-next:before {
+	font-family: fontawesome;
+	font-size: 30px;
+	color: black;
+}
+
+.slick-prev:before {
+	content: '\f100';
+}
+
+.slick-next:before {
+	content: '\f101';
+}
+</style>
+</head>
+
+<body>
+	<header>
+		<div class="opacity_menu"></div>
+		<div class="topbar">
+			<div class="container">
+				<div class="topbar-left"></div>
+				<div class="topbar-right">
+					<div class="category-action d-lg-none d-flex">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="12"
+							viewBox="0 0 18 12" fill="none">
+                            <path d="M6 2V0H18V2H6Z" fill="#666"></path>
+                            <path d="M0 7H18V5H0V7Z" fill="#666"></path>
+                            <path d="M6 12H18V10H6V12Z" fill="#666"></path>
+                        </svg>
+					</div>
+					<div class="topbar-search d-block d-lg-none">
+						<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true"
+							data-prefix="fa" data-icon="search" role="img"
+							xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+							data-fa-i2svg="">
+                            <path fill="currentColor"
+								d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                            </path>
+                        </svg>
+						<!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+						<svg class="svg-close" xmlns="http://www.w3.org/2000/svg"
+							version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+							xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512"
+							x="0" y="0" viewBox="0 0 512 512"
+							style="enable-background: new 0 0 512 512" xml:space="preserve">
+                            <g>
+                                <g data-name="02 User">
+                                    <path
+								d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z"
+								fill="#000000" data-original="#000000" class=""></path>
+                                    <path
+								d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z"
+								fill="#000000" data-original="#000000" class=""></path>
+                                </g>
+                            </g>
+                        </svg>
+					</div>
+					<form action="/search" method="get" class="header-search-form"
+						role="search">
+						<input type="text" name="query" class="search-auto form-control"
+							placeholder="Tìm kiếm sản phẩm..." autocomplete="off" />
+						<button class="btn btn-default" type="submit"
+							aria-label="Tìm kiếm">
+							<i class="bi bi-search" style="color: white;"></i>
+						</button>
+					</form>
+					<a href="/" class="logo-wrapper d-block d-lg-none"> <img
+						src="/assets/image/toko.png" alt="logo ">
+					</a>
+					<div class="cart-drop">
+						<a href="/cart" class="cart-icon"
+							style="position: relative; margin-bottom: 10px;"> <i
+							class="bi bi-cart4" style="font-size: 30px; color: red;"></i> <span
+							class="count_item_pr"
+							style="position: absolute; top: 0px; left: 20px;">0</span>
+
+						</a>
+
+						<div class="top-cart-content">
+							<div class="CartHeaderContainer"></div>
+						</div>
+					</div>
+					<div class="user">
+						<a><i class="bi bi-person "
+							style="font-size: 30px; color: red"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="header-nav container">
+			<ul id="nav" class="nav d-none d-lg-flex">
+				<li class="nav-item d-none d-md-flex active"><a
+					class="nav-link" href="/">Trang chủ</a></li>
+				<li class="nav-item d-none d-md-flex "><a class="nav-link"
+					href="/chinh-sach-doi-tra">Chính sách đổi trả</a></li>
+				<div class="nav-item-logo">
+					<a href="/" class="logo-wrapper "> <img
+						src="/assets/image/toko.png" style="width: 200px;" alt="logo ">
+					</a>
+				</div>
+				<li class="nav-item d-none d-md-flex "><a class="nav-link"
+					href="/bang-size">Bảng size</a></li>
+				<li class="nav-item d-none d-md-flex "><a class="nav-link"
+					href="/he-thong-cua-hang">Hệ thống cửa hàng</a></li>
+			</ul>
+			<div class="menu-slider block-menu">
+				<div class="close-menu d-lg-none d-block">
+					<svg aria-hidden="true" focusable="false" data-prefix="fal"
+						data-icon="times-circle" role="img"
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+						class="svg-inline--fa fa-times-circle fa-w-16">
+                        <path fill="currentColor"
+							d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z"
+							class=""></path>
+                    </svg>
+				</div>
+				<div class="title d-lg-none d-block">MENU</div>
+				<ul class="menu-mb d-none d-lg-block">
+					<li><a href="#">Tất cả sản phẩm</a></li>
+					<li><a href="#">Áo Thun</a></li>
+					<li><a href="#">Baby Tee</a></li>
+					<li><a href="#">Áo Polo</a></li>
+					<li><a href="#">Áo sơ mi</a></li>
+					<li><a href="#">Áo khoác</a></li>
+					<li><a href="#">Hoodie</a></li>
+					<li><a href="#">Quần</a></li>
+
+					<li><a href="#">Phụ kiện</a></li>
+				</ul>
+				<ul class="menu-mb d-block d-lg-none">
+					<li><a href="/">Trang chủ</a></li>
+					<li><a href="#">Tất cả sản phẩm</a>
+						<ul class="lv1">
+							<li><a href="#">Áo thun</a></li>
+							<li><a href="#">Baby Tee</a></li>
+							<li><a href="#">Áo polo</a></li>
+							<li><a href="#">Áo sơ mi</a></li>
+							<li><a href="#">Áo khoác</a></li>
+							<li><a href="#">Hoodie</a></li>
+							<li><a href="#">Quần</a></li>
+							<li><a href="#">Phụ kiện</a></li>
+						</ul></li>
+					<li><a href="#">Chính sách đổi trả</a></li>
+					<li><a href="#">Bảng Size</a></li>
+					<li><a href="#">Kiểm tra đơn hàng</a></li>
+					<li><a href="#">Hệ thống Cửa hàng</a></li>
+				</ul>
+			</div>
+		</nav>
+		<button id="backToTopBtn" class="back-to-top-btn">
+			<i class="bi bi-chevron-up"></i>
+		</button>
+	</header>
+	<main>
+
+		<div th:replace="${main}"></div>
+		<script src="https://static.elfsight.com/platform/platform.js"
+			data-use-service-core defer></script>
+		<div class="elfsight-app-7f179f52-0a0c-4e9e-8c96-40c015112223"
+			data-elfsight-app-lazy></div>
+	</main>
+
+	<footer>
+
+		<div class="footer index">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-12 col-contact-footer">
+						<div class="logo-footer">
+							<a href="/"> <img src="/assets/image/toko-white.png" alt="">
+							</a>
+						</div>
+						<ul>
+							<li>CS1 - Thái Nguyên: 235 Quang Trung, TP Thái Nguyên</li>
+							<li>CS2 - Thái Nguyên: 599 Lương Ngọc Quyến, TP Thái Nguyên</li>
+							<li>CS3 - Thái Bình: 161 Hai Bà Trưng, TP Thái Bình</li>
+							<li>CS4 - Vĩnh Phúc: 06 Mê Linh, TP Vĩnh Yên</li>
+							<li>CS5 - Hải Dương: 09 Nguyễn Thị Duệ, TP Chí Linh</li>
+						</ul>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-mailchip">
+						<h4>ĐĂNG KÝ</h4>
+						<form action="#" method="post" id="mc-embedded-subscribe-form"
+							class="mail_footer" name="mc-embedded-subscribe-form"
+							target="_blank">
+							<input type="email" class="form-control" value=""
+								placeholder="Nhập địa chỉ email" name="EMAIL" id="mail">
+							<button class="btn btn-default" type="submit"
+								aria-label="Đăng ký ngay" name="subscribe">
+								<i class="fa fa-send-o" style="color: black; font-size: 20px;"></i>
+							</button>
+						</form>
+						<p>Theo dõi Toko trên nhiều nền tảng khác nhau nhé!</p>
+						<a href="#" class="social-button facebook"
+							title="Theo dõi trên Facebook"> <img
+							src="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/facebook.svg?1692958575148"
+							alt="facebook" />
+						</a> <a href="#" class="social-button instagram"
+							title="Theo dõi trên Instagram"> <img
+							src="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/instagram.svg?1692958575148"
+							alt="tiktok" />
+						</a> <a href="#" class="social-button tiktok"
+							title="Theo dõi trên Tiktok"> <img
+							src="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/tiktok.svg?1692958575148"
+							alt="tiktok" />
+						</a> <a href="#" class="social-button shopee"
+							title="Theo dõi trên Shopee"> <img
+							src="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/shopeeico.png?1692958575148"
+							alt="shopee" width="40" />
+						</a> <a href="#" class="social-button lazada"
+							title="Theo dõi trên Lazada"> <img
+							src="//bizweb.dktcdn.net/100/415/697/themes/902041/assets/lazadaico.png?1692958575148"
+							alt="lazada" width="40" />
+						</a>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-click">
+						<h4>About Us</h4>
+						<ul class="footer-menu toggle-mn">
+							<li><a href="" title="Trang chủ" rel="nofollow">Trang
+									chủ</a></li>
+							<li><a href="" title="Tất cả sản phẩm" rel="nofollow">Tất
+									cả sản phẩm</a></li>
+							<li><a href="" title="Chính sách đổi trả" rel="nofollow">Chính
+									sách đổi trả</a></li>
+							<li><a href="" title="Bảng Size" rel="nofollow">Bảng
+									Size</a></li>
+							<li><a href="" title="Kiểm tra đơn hàng" rel="nofollow">Kiểm
+									tra đơn hàng</a></li>
+							<li><a href="" title="Hệ thống Cửa hàng" rel="nofollow">Hệ
+									thống Cửa hàng</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- Bootstrap JavaScript Libraries -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous">
+		
+	</script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+		integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+		crossorigin="anonymous">
+		
+	</script>
+
+
+	<script type="text/javascript" src="frontend/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+		integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
+		integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Thư viện jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<!-- Thư viện intl-tel-input -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+	<script>
+  const host = "https://provinces.open-api.vn/api/";
+  var callAPI = (api) => {
+    return axios.get(api).then((response) => {
+      renderData(response.data, "city");
+    });
+  };
+  callAPI('https://provinces.open-api.vn/api/?depth=1');
+  var renderData = (array, select) => {
+    let row = `<option selected value="">Chọn tỉnh thành</option>`;
+    array.forEach((element) => {
+      row += `<option data-id="${element.code}" value="${element.name}">${element.name}</option>`;
+    });
+    document.querySelector("#" + select).innerHTML = row;
+  };
+</script>
+
+	<script>
+  // Gọi hàm khi trang được tải
+  $(document).ready(function () {
+    // Chọn ô nhập số điện thoại bằng id
+    var input = document.querySelector("#phone");
+
+    // Khởi tạo plugin intl-tel-input
+    var iti = window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function (success, failure) {
+        // Gọi API để lấy thông tin địa lý dựa trên địa chỉ IP của người dùng
+        $.get("https://ipinfo.io", function () { }, "jsonp").always(function (
+          resp
+        ) {
+          var countryCode = resp && resp.country ? resp.country : "VN";
+          success(countryCode);
+        });
+      },
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  });
+</script>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function ($scope, cartService) { });
+</script>
+
+	<script>
+		$(document).ready(function() {
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 20) {
+					$('#backToTopBtn').fadeIn();
+				} else {
+					$('#backToTopBtn').fadeOut();
+				}
+			});
+
+			$('#backToTopBtn').click(function() {
+				$('html, body').animate({
+					scrollTop : 0
+				}, 800); // 800 là thời gian chuyển động (milliseconds)
+				return false;
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		$('.filtering').slick({
+			slidesToShow : 4,
+			slidesToScroll : 4,
+			arrows : true,
+			speed : 300
+		});
+
+		var filtered = false;
+
+		$('.js-filter').on('click', function() {
+			if (filtered === false) {
+				$('.filtering').slick('slickFilter', ':even');
+				$(this).text('Unfilter Slides');
+				filtered = true;
+			} else {
+				$('.filtering').slick('slickUnfilter');
+				$(this).text('Filter Slides');
+				filtered = false;
+			}
+		});
+	</script>
+
+
+
+	<script>
+		function formatNumber(num) {
+			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		}
+
+		function updateValue(value) {
+			var formattedValue = formatNumber(value);
+			document.getElementById("sliderValue").innerHTML = formattedValue
+					+ "đ";
+		}
+
+		function getValue() {
+			var slider = document.getElementById("customRange1");
+			var value = slider.value;
+			var formattedValue = formatNumber(value);
+			document.getElementById("sliderValue").innerHTML = formattedValue
+					+ "đ";
+		}
+
+		// Lấy tất cả các phần tử có class "formatted-price"
+		var prices = document.querySelectorAll('.formatted-price');
+
+		// Duyệt qua từng phần tử để định dạng số tiền
+		prices.forEach(function(priceElement) {
+			var price = parseFloat(priceElement.textContent.replace(/\./g, '')
+					.replace('đ', '')); // Xóa dấu chấm và ký tự "đ" và chuyển đổi sang số
+			var formattedPrice = new Intl.NumberFormat('vi-VN', {
+				style : 'currency',
+				currency : 'VND'
+			}).format(price); // Định dạng lại số tiền
+			priceElement.textContent = formattedPrice; // Gán giá trị đã định dạng vào phần tử
+		});
+	</script>
+
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Lắng nghe sự kiện click trên nút "Chỉnh sửa hồ sơ"
+    document.getElementById('editProfileBtn').addEventListener('click', function() {
+        // Hiển thị hai nút "Submit" và "Cancel"
+        document.getElementById('submitButton').style.display = 'inline-block';
+        document.getElementById('cancelButton').style.display = 'inline-block';
+    });
+});
+
+    </script>
+
+
+</body>
+
+</html>

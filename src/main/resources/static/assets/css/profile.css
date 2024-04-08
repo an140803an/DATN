@@ -1,0 +1,76 @@
+  .imfor {
+        margin-left: 30px;
+        margin: 40px;
+        font-size: 17px;
+
+    }
+
+    .imforA {
+        text-decoration: none;
+        color: rgb(6, 0, 0);
+    }
+
+    /* Màu khi hover */
+    .imforA:hover {
+        color:#9c9a9a;
+        /* Màu đỏ khi hover */
+    }
+
+    .card-img-circlea {
+        margin: 15px;
+        width: 150px;
+        /* Điều chỉnh kích thước của hình tròn */
+        height: 150px;
+        /* Điều chỉnh kích thước của hình tròn */
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        /* Biến hình hình tròn */
+     
+        /* Khoảng cách giữa hình và văn bản */
+    }
+
+
+    .imageHover {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+
+.edit-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.imageHover:hover .edit-button {
+    opacity: 1;
+}
+#submitButton,
+#cancelButton {
+    display: none; /* Ẩn các nút Submit và Cancel ban đầu */
+}
+ 
+.gender {
+	display: flex;
+	float: left;
+}
+.cc {
+	margin-left: 5px;
+}
+.form-control{
+	height: 45px;
+}
+
+.boxgender{
+	height: 70px;
+}
+.form-control:disabled {
+	 background-color: white !important;
+	 color: #BAB7B7 !important; 
+}

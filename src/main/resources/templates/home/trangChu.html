@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/layout :: dynamic(~{::main})}">
+
+
+
+
+<body>
+	<main>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="demo" class="carousel slide " data-bs-ride="carousel">
+					<!-- Indicators/dots -->
+					<div class="carousel-indicators ">
+						<button type="button" data-bs-target="#demo" data-bs-slide-to="0"
+							class="active"></button>
+						<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+						<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+
+					</div>
+
+					<div class="carousel-inner ">
+						<div class="carousel-item active ">
+							<img
+								src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_1.jpg?1692958575148"
+								alt="img1" class="d-block w-100">
+						</div>
+						<div class="carousel-item">
+							<img
+								src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_2.jpg?1692958575148"
+								alt="img2" class="d-block  w-100 ">
+						</div>
+						<div class="carousel-item">
+							<img
+								src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_3.jpg?1692958575148"
+								alt="img3" class="d-block  w-100">
+						</div>
+
+						<button class="carousel-control-prev " type="button"
+							data-bs-target="#demo" data-bs-slide="prev"></button>
+						<button class="carousel-control-next" type="button"
+							data-bs-target="#demo" data-bs-slide="next"></button>
+
+					</div>
+				</div>
+				<div class="row p-5">
+					<div style="text-align: center;">
+						<h2>Enjoy Your Youth!</h2>
+						<p style="font-size: 16px;">
+							Không chỉ là thời trang, TOKOFASHION còn là “phòng thí nghiệm”
+							của tuổi trẻ - nơi nghiên cứu và cho ra đời nguồn năng lượng mang
+							tên “Youth”. <br> Chúng mình luôn muốn tạo nên những trải
+							nghiệm vui vẻ, năng động và trẻ trung.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="row mb-5 m-3">
+				<h1>Áo Polo</h1>
+			</div>
+			<div class="row mb-5 m-3">
+				<div class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-2"
+					th:each="p, iterStat : ${itemPolo}" th:if="${iterStat.index < 4}">
+					<div class="card mx-auto " style="border: 0;">
+						<div class="CR">
+							<a th:href="@{|/product/detail/${p.productId}|}"> <img
+								style="width: 90%;" th:src="@{${p.img}}"
+								class="card-img-top zoom-img  " alt="...">
+							</a>
+						</div>
+						<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'">
+
+										</span>
+										<a href="#" class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+								<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price - (p.price * p.discount/100)}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary formatted-price" th:text="${p.price}+ 'đ'"></span>
+										</div> 	
+									</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-5 m-3">
+				<h1>Áo Sơ Mi</h1>
+			</div>
+			<div class="row mb-5 m-3">
+				<div class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-2"
+					th:each="p, iterStat : ${itemAoSoMi}" th:if="${iterStat.index < 4}">
+					<div class="card mx-auto " style="border: 0;">
+						<div class="CR">
+							<a href="" th:href="@{|/product/detail/${p.productId}|}"> <img
+								style="width: 90%;" th:src="@{${p.img}}"
+								class="card-img-top zoom-img  " alt="...">
+							</a>
+						</div>
+
+
+						<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'">
+
+										</span>
+										<a href="#" class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+								<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price - (p.price * p.discount/100)}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary formatted-price " th:text="${p.price}+ 'đ'"></span>
+										</div> 	
+									</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-5 m-3">
+			<div class="row mb-5">
+				<h1>Áo Thun</h1>
+			</div>
+			<div class="row mb-5 m-3">
+				<div class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-2"
+					th:each="p, iterStat : ${items}" th:if="${iterStat.index < 4}">
+					<div class="card mx-auto " style="border: 0;">
+						<div class="CR">
+							<a href="" th:href="@{|/product/detail/${p.productId}|}"> <img
+								style="width: 90%;" th:src="@{${p.img}}"
+								class="card-img-top zoom-img  " alt="...">
+							</a>
+						</div>
+						<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'">
+										</span>
+										<a href="#" class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+								<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price - (p.price * p.discount/100)}"></strong>
+										</span>
+											<span class="text-decoration-line-through text-secondary formatted-price " th:text="${p.price}+ 'đ'"></span>
+										</div> 	
+									</div>
+					</div>
+				</div>
+			</div>
+				<h1>Áo Khoác</h1>
+			</div>
+			<div class="row mb-5 m-3">
+				<div class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-2"
+					th:each="p, iterStat : ${itemKhoac}" th:if="${iterStat.index < 4}">
+					<div class="card mx-auto " style="border: 0;">
+						<div class="CR">
+							<a href="" th:href="@{|/product/detail/${p.productId}|}"> <img
+								style="width: 90%;" th:src="@{${p.img}}"
+								class="card-img-top zoom-img  " alt="...">
+							</a>
+						</div>
+
+							<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'">
+
+										</span>
+										<a href="#" class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+								<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price - (p.price * p.discount/100)}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary formatted-price" th:text="${p.price}+ 'đ'"></span>
+										</div> 	
+									</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mb-5 m-3">
+				<h1>Phụ Kiện</h1>
+			</div>
+
+			<div class="row mb-5 m-3">
+				<div class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-2"
+					th:each="p, iterStat : ${itemPhuKien}"
+					th:if="${iterStat.index < 4}">
+					<div class="card mx-auto " style="border: 0;">
+						<div class="CR">
+							<a href="" th:href="@{|/product/detail/${p.productId}|}"> <img
+								style="width: 90%;" th:src="@{${p.img}}"
+								class="card-img-top zoom-img  " alt="...">
+							</a>
+						</div>
+
+
+						<div class="card-body mb-5" style="height: 100px;">
+										<span
+											class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger"
+											th:text="${p.discount}+ '%'">
+
+										</span>
+										<a href="#" class="card-text  text-decoration-none fs-6 text-dark ">
+											<p class="text-center text-truncate" th:text="${p.name}"></p>
+										</a>
+
+								<div class="card-text text-center " >
+										<span >
+											<strong class="text-danger formatted-price" style="font-size: 18px;"th:text="${p.price - (p.price * p.discount/100)}"></strong>
+										</span>
+												
+											
+											<span class="text-decoration-line-through text-secondary formatted-price " th:text="${p.price}+ 'đ'"></span>
+										</div> 	
+									</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="row mb-5 p-3">
+			<h2 class="text-center">Find out TOKO-FASHION more</h2>
+		</div>
+		</div>
+
+
+		<div class="container-fluid position-relative">
+			<div class="row  position-relative">
+				<img style="opacity: 0.5;" src="assets/image/banner11.jpg"
+					alt=" ảnh bottom" class="img-fluid">
+			</div>
+			<div class="position-absolute top-50 start-50 translate-middle">
+
+				<div class="input-group textbottom">
+					<input type="text" class="form-control"
+						placeholder="Enter your account name.."
+						aria-label="Recipient's username" aria-describedby="button-addon2">
+					<button class="btn btn-outline-dark" style="height: 45px" type="button"
+						id="button-addon2">
+						<b>MAIL <i class="bi bi-arrow-right-square"></i></b>
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+		<!-- <div class="container">
+            
+           
+            <div class="row m-5  " >
+                <div class="  col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="card m-2  border-0 mx-auto" style="width:80% ">
+                        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/feedback_1.jpg?1692958575148" alt="img bottom">
+                        
+                      </div>
+                </div>
+                <div class="  col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="card m-2  border-0 mx-auto" style="width:80% ">
+                        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/feedback_1.jpg?1692958575148" alt="img bottom">
+                        
+                      </div>
+                </div>
+                <div class="  col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="card  m-2 border-0 mx-auto" style="width:80% ">
+                        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/feedback_1.jpg?1692958575148" alt="img bottom">
+                        
+                      </div>
+                </div>
+                <div class="  col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="card  m-2 border-0 mx-auto" style="width:80% ">
+                        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/feedback_1.jpg?1692958575148" alt="img bottom">
+                        
+                      </div>
+                </div>
+                
+                
+              
+            </div>
+            
+        </div> -->
+
+
+	</main>
+
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/shared/adminLayout :: dynamic(~{::main})}">
+
+
+<main>
+
+  <body id="page-top" ng-controller="account-ctrl">
+
+
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ TÀI KHOẢN</h1>
+
+      <hr>
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold text-primary">Danh sách tài khoản</h6>
+        </div>
+        <div class="card-header ">
+
+          <div class="row ">
+            <div class="col-md-2 ">
+
+              <a class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#addAccount" title="Thêm"><i
+                  class="fas fa-plus"></i>
+                Tạo mới tài khoản</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>ID Account</th>
+                  <th>Full Name</th>
+                  <th>Avatar</th>
+                  <th>Phone</th>
+                  <th>Gender</th>
+                  <th>Address</th>
+
+                  <th>Role</th>
+
+                  <th>Edit</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr ng-repeat="item in listUser">
+                  <td> <input type="checkbox"></td>
+                  <td>{{item.account_id}}</td>
+                  <td>{{item.name}}</td>
+                  <td><img style="width: 60px; height :60px " alt=""
+                      ng-src="http://localhost:8080/assetsAdmin/img/{{item.img}}"></td>
+                  <td>{{item.phone}}</td>
+                  <td>{{item.gender}}</td>
+                  <td>{{item.address}}</td>
+                  <td>{{item.authorities[0].role.name}}</td>
+                  <td>
+                    <button ng-click="findAccount(item.account_id)" class="btn btn-outline-warning btn-sm edit"
+                      type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                        class="fas fa-edit"></i></button>
+                  </td>
+
+                </tr>
+
+
+
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+
+
+    <!-- edit modal -->
+    <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+      data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <form ng-submit="saveAccount()">
+              <div class="row">
+                <div class="form-group  col-md-12">
+                  <span class="thong-tin-thanh-toan">
+                    <h5>Chỉnh sửa thông tin nhân viên cơ bản</h5>
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="control-label">ID nhân viên</label>
+                  <input ng-model="account.account_id" class="form-control" type="text" required disabled>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Họ và tên</label>
+                  <input ng-model="account.name" class="form-control" type="text" required>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label class="control-label">Số điện thoại</label>
+                  <input ng-model="account.phone" class="form-control" type="text" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Địa chỉ email</label>
+                  <input ng-model="account.email" class="form-control" type="text" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Địa chỉ</label>
+                  <input ng-model="account.address" class="form-control" type="text" required>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="exampleSelect1" class="control-label">Chức vụ</label>
+                  <select class="form-control" ng-model="account.authorities[0].role.id"
+                    ng-options="role.value as role.label for role in roles" required>
+                    <option value="">-- Chọn một vai trò --</option>
+                  </select>
+                </div>
+              </div>
+
+              <BR>
+              <!-- <button ng-click="saveAccount()" class="btn btn-save">Lưu lại</button>
+              <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a> -->
+              <button class="btn btn-outline-primary m-1" type="submit">Lưu lại</button>
+              <a class="btn btn-outline-secondary m-1" data-dismiss="modal" href="#">Hủy bỏ</a>
+              <br>
+            </form>
+          </div>
+
+          <BR>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="addAccount" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+      data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form method="post" enctype="multipart/form-data" ng-submit="addAccount()">
+              <div class="row">
+                <div class="form-group  col-md-12">
+                  <span class="thong-tin-thanh-toan">
+                    <h5>Thêm tài khoản người dùng</h5>
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="control-label">Mật khẩu</label>
+                  <input ng-model="newAccount.password" class="form-control" type="password" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Họ và tên</label>
+                  <input ng-model="newAccount.name" class="form-control" type="text" required value="Võ Trường">
+                </div>
+                <div class="form-group  col-md-6">
+                  <label class="control-label">Số điện thoại</label>
+                  <input ng-model="newAccount.phone" class="form-control" type="text" required value="09267312388">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Địa chỉ email</label>
+                  <input ng-model="newAccount.email" class="form-control" type="email" required
+                    value="truong.vd2000@gmail.com">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Địa chỉ</label>
+                  <input ng-model="newAccount.address" class="form-control" type="text" required>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="exampleSelect1" class="control-label">Chức vụ</label>
+                  <select class="form-control" ng-model="newAccount.authorities[0].role.id"
+                    ng-options="role.value as role.label for role in roles" required>
+                    <option value="">-- Chọn một vai trò --</option>
+                  </select>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="exampleSelect1" class="control-label">Giới tính</label>
+                  <select class="form-control" ng-model="newAccount.gender" required>
+                    <option value="">-- Chọn một giới tính --</option>
+                    <option selected value="Nam">-- Nam --</option>
+                    <option value="Nữ">-- Nữ --</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-12">
+                  <label class="control-label">Ảnh đại diện</label>
+                  <input ng-model="newAccount.img" class="form-control" type="file" required name="mediaFiles"
+                    id="inputGroupFile01" multiple>
+                </div>
+              </div>
+
+              <BR>
+              <button type="submit" class="btn btn-outline-primary m-1">Thêm</button>
+              <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+              <BR>
+            </form>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</main>
+
+</html>

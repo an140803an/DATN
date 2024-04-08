@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/shared/adminLayout :: dynamic(~{::main})}">
+
+
+
+<main>
+	<body onload="time()" id="page-top" ng-controller="product-ctrl">
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">QUẢN LÝ SẢN PHẨM</h1>
+
+			<hr>
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4">
+				<div class="card-header">
+					<h6 class="m-0 font-weight-bold text-primary">Danh sách sản
+						phẩm</h6>
+				</div>
+				<div class="card-header ">
+
+					<div class="row ">
+						<div class="col-md-2">
+
+							<a class="btn btn-outline-success btn-sm" href="/themSP"
+								title="Thêm"><i class="fas fa-plus"></i> Thêm sản phẩm mới</a>
+						</div>
+						<!-- <div class="col-md-2">
+                                  <a class="btn btn-outline-danger btn-sm" type="button"  data-toggle="modal" data-target="#exampleModal"><i
+                                      class="fas fa-trash-alt"></i> Xóa sản phẩm</a>
+                                </div> -->
+					</div>
+
+				</div>
+
+				<div class="card-body">
+					<div class="table-responsive ">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+
+									<th>ID Prod</th>
+									<th>ID Cate</th>
+									<th>Name</th>
+									<th>Image</th>
+									<th>Price</th>
+									<th>Materrial</th>
+									<th>Status</th>
+									<th>Pattern</th>
+									<th>Discount</th>
+									<th>Create Date</th>
+									<th>Status</th>
+									<th>Edit</th>
+
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr ng-repeat="item in list | limitTo : pageSize : begin">
+
+									<td>{{item.productId}}</td>
+									<td>{{item.category.categoryId}}</td>
+									<td>{{item.name}}</td>
+									<td><img style="width: 60px; height: 60px" alt=""
+										ng-src="{{item.img}}"></td>
+									<td>{{item.price}}</td>
+									<td>{{item.descMaterial}}</td>
+									<td>{{item.descStatus}}</td>
+									<td>{{item.descPattern}}</td>
+									<td>{{item.discount}}</td>
+									<td>{{item.createDate}}</td>
+									<td>{{item.status}}</td>
+									<td>
+										<button class=" mb-2 btn btn-outline-danger btn-sm trash"
+											type="button" title="Xóa" ng-click="delete(item.productId)">
+											<i class="fas fa-trash-alt"></i>
+										</button>
+										<button class="btn btn-outline-warning btn-sm edit"
+											type="button" title="Sửa" id="show-emp" data-toggle="modal"
+											ng-click="edit(item.productId)" data-target="#ModalUP">
+											<i class="fas fa-edit"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+
+							<form role="search">
+								<div
+									style="display: flex; align-items: center; margin-bottom: 20px">
+									<!-- Ô input cho ID sản phẩm -->
+									<input class="form-control" type="number"
+										style="width: 300px; margin-right: 10px;"
+										placeholder="Search by ID" aria-label="Search by ID"
+										ng-model="searchId">
+
+									<!-- Nút tìm kiếm theo ID sản phẩm -->
+									<button class="btn btn-outline-success" ng-click="searchById()">Search
+										by ID</button>
+
+									<button class="btn btn-outline-danger"
+										style="margin-left: 10px;" ng-click="cancelSearch()">Cancel</button>
+								</div>
+								<!-- <div style="display: flex; align-items: center; margin-bottom: 20px">
+									
+									<input class="form-control" type="number"
+										style="width: 300px; margin-right: 10px;"
+										placeholder="Search by ID" aria-label="Search by category id"
+										ng-model="id">
+
+									
+									<button class="btn btn-outline-success" ng-click="searchByCategoryId()">Search
+										by category</button>
+
+									<button class="btn btn-outline-danger"
+										style="margin-left: 10px;" ng-click="cancelSearch()">Cancel</button>
+								</div> -->
+							</form>
+
+						</table>
+						<div class="card-footer text-muted">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+									<li class="page-item" ng-click="first()"><a
+										class="page-link" href="#" aria-label="Previous"> <span
+											aria-hidden="true"><<</span>
+									</a></li>
+									<li class="page-item" ng-click="prev()"><a
+										class="page-link" href="#" aria-label="Previous"> <span
+											aria-hidden="true"><</span>
+									</a></li>
+									<li ng-repeat="page in getPages()"
+										ng-class="{ 'page-item': true, 'active': begin / pageSize == page - 1 }">
+										<a class="page-link" ng-click="goToPage(page - 1)">{{ page
+											}}</a>
+									</li>
+									<li class="page-item" ng-click="next()"><a
+										class="page-link" href="#" aria-label="Next"> <span
+											aria-hidden="true">></span>
+									</a></li>
+									<li class="page-item" ng-click="last()"><a
+										class="page-link" href="#" aria-label="Next"> <span
+											aria-hidden="true">>></span>
+									</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
+
+		<!-- Xóa tất cả MODAL -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Thông Báo</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">Bạn có chắc muốn xóa sản phẩm này</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Thoát</button>
+						<button type="button" class="btn btn-primary">Lưu chỉnh
+							sửa</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- edit modal -->
+		<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog"
+			aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<div class="row">
+							<div class="form-group  col-md-12">
+								<span class="thong-tin-thanh-toan">
+									<h5>
+										<b class="text-dark">Chỉnh sửa thông tin sản phẩm cơ bản</b>
+									</h5>
+									<hr>
+								</span>
+							</div>
+						</div>
+						<form class="row" enctype="multipart/form-data">
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">ID Category : </label> <input
+									class="form-control"
+									ng-model="form.product.category.categoryId" type="number"
+									placeholder="" readonly>
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Name :</label> <input
+									class="form-control" ng-model="form.product.name" type="text"
+									required>
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Price :</label> <input
+									class="form-control" ng-model="form.product.price"
+									type="number" required>
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Description
+									Material :</label> <input class="form-control"
+									ng-model="form.product.descMaterial" type="text">
+							</div>
+
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Description
+									Status :</label> <input class="form-control"
+									ng-model="form.product.descStatus" type="text">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Description
+									Pattern :</label> <input class="form-control"
+									ng-model="form.product.descPattern" type="text">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Discount :</label> <input
+									class="form-control" ng-model="form.product.discount"
+									type="number">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Status :</label> <input
+									class="form-control" ng-model="form.product.status" type="text">
+							</div>
+
+
+
+
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Size:</label> <select
+									class="form-control" ng-model="selectedSize"
+									ng-change="updateQuantity()">
+
+									<option ng-repeat="pd in form.productDetail"
+										ng-value="pd.productDetailId">{{pd.size}}</option>
+								</select>
+							</div>
+
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Quantity:</label> <input
+									class="form-control" ng-model="quantity" type="number" min="0"
+									max="100">
+							</div>
+
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Size mới:</label> <input
+									class="form-control" ng-model="newSize" type="text">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Quantity size
+									mới:</label> <input class="form-control" ng-model="newQuantity"
+									type="text">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="control-label text-dark">Image :</label> <input
+									type="file" ng-model="file" />
+
+								<button ng-click="uploadFile()">Upload File</button>
+							</div>
+							<div class="form-group col-md-6"></div>
+
+							<BR>
+
+							<button class="btn btn-outline-primary m-1" type="submit"
+								ng-click="update()">Lưu lại</button>
+							<a class="btn btn-outline-secondary m-1" data-dismiss="modal"
+								href="#">Hủy bỏ</a> <BR>
+						</form>
+					</div>
+
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</body>
+</main>
+</html>
